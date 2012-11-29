@@ -2,7 +2,7 @@
 *@Author: Ben Decker
 *@Date: 24 September 2012
 *@Assignment: Homework 2: Placing things on top of other things
-*@Additional Notes: Syntax for KeyEvents, and HW01 outline methods borrowed from Markus Ernst (https://github.com/clueless)
+*@Additional Notes: Syntax for KeyEvents, and HW01 outline methods borrowed from Markus Ernst (https://github.com/cluelesswalnut)
 **/
 
 #include "cinder/app/AppBasic.h"
