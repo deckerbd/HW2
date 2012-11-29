@@ -2,7 +2,7 @@
 *@Author: Ben Decker
 *@Date: 24 September 2012
 *@Assignment: Homework 2: Placing things on top of other things
-*@Additional Notes: Syntax for KeyEvents and HW01 outline used from jordankomnick (https://github.com/jordankomnick)
+*@Additional Notes: Syntax for KeyEvents, and HW01 outline methods borrowed from Markus Ernst (https://github.com/clueless)
 **/
 
 #include "cinder/app/AppBasic.h"
@@ -60,6 +60,7 @@ class HW2App : public AppBasic {
 void HW2App::setPixel(uint8_t* ar, int x,int y, Color8u c)
 {
 	//set all three of the colors individually using the cordinates of the pixel
+	//logic taken from in-class discussion and HW1
 	ar[y * 1024 * 3 + 3 * x] = c.r;
 	ar[y * 1024 * 3 + 3 * x + 1] = c.g;
 	ar[y * 1024 * 3 + 3 * x + 2] = c.b;
@@ -69,6 +70,7 @@ void HW2App::setPixel(uint8_t* ar, int x,int y, Color8u c)
 void HW2App::drawRect(uint8_t* ar, int x,int y, int w, int h, Color8u c)
 {
 	//loop through all of the pixels in the rectangle and change their color
+	//logic taken from in-class discussion and HW1
 	for(int i = x; i < x + w; i++){
 		for(int j = y; j < y + h; j++){
 			setPixel(ar, i, j, c);
@@ -77,7 +79,7 @@ void HW2App::drawRect(uint8_t* ar, int x,int y, int w, int h, Color8u c)
 
 };
 
-void HW2App::keyDown( KeyEvent event ) {
+void HW2App::keyDown( KeyEvent event ) { //credit for keyDown  and syntax for KeyEvents to Markus Ernst (https://github.com/cluelesswalnut 
 	//if the key pressed is one of the shapes then set shape to that shape's key
 	if(event.getChar() == 'q' || event.getChar() == 'w'|| event.getChar() == 'e'|| event.getChar() == 'r'|| event.getChar() == 't'|| event.getChar() == 'y'){
 	shape = event.getChar();
@@ -260,7 +262,7 @@ void HW2App::setup()
 {
 	//create surface
 	mySurface_ = new Surface(1024,1024,false);
-	// set variable to toggle help
+	// set variable to toggle help; credit for help screen layout to Markus Ernst (https://github.com/cluelesswalnut)
 	help = 1;
 	//set font of help
 	font = Font( "", 14.0 );
@@ -320,7 +322,9 @@ void HW2App::update()
 {
 	uint8_t* pixelArray = (*mySurface_).getData();
 
-	//set temp back to the start of the list of shapes
+	//rest of method logic credit to Markus Ernst (https://github.com/cluelesswalnut)
+
+	//set temp back to the start of the list of shapes 
 	temp = lst;
 	temp = temp->next;
 
@@ -334,8 +338,7 @@ void HW2App::update()
 
 void HW2App::draw()
 {
-	//show help or shapes
-	if(help == 1){
+	if(help == 1){ //logic credit to Markus Ernst (https://github.com/cluelesswalnut)
 	gl::draw(tex);
 	}
 	else
